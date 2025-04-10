@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SL Number Finder</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
+  <header class="w-full max-w-2xl text-center mb-8">
+    <h1 class="text-3xl font-bold text-gray-800">📞 SL Number Finder</h1>
+    <p class="text-gray-500">Search numbers, stay informed</p>
+  </header>
+
+  <!-- Search Section -->
+  <section class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">
+    <label for="phone" class="block text-gray-700 font-medium mb-2">Enter Phone Number</label>
+    <div class="flex">
+      <span class="inline-flex items-center px-3 bg-gray-200 rounded-l-md text-gray-600">+94</span>
+      <input type="text" id="phone" placeholder="7XXXXXXXX" class="w-full border border-gray-300 rounded-r-md p-2" />
+    </div>
+    <button id="searchBtn" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Search 🔍</button>
+    <button id="addNewNumberBtn" class="mt-4 w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700">
+      ➕ Add New Number
+    </button>
+  </section>
+
+  <!-- Pop-up Modal -->
+  <div id="popupModal" class="hidden fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+    <div class="bg-white rounded-lg p-6 max-w-md w-full">
+      <h2 class="text-xl font-semibold text-gray-700 mb-4">Add New Number</h2>
+      <label for="addPhone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+      <input type="text" id="addPhone" placeholder="7XXXXXXXX" class="w-full border border-gray-300 rounded-md p-2 mb-4" />
+      <label for="addName" class="block text-gray-700 font-medium mb-2">Name</label>
+      <input type="text" id="addName" placeholder="John Doe" class="w-full border border-gray-300 rounded-md p-2 mb-4" />
+      <label for="addLocation" class="block text-gray-700 font-medium mb-2">Location</label>
+      <input type="text" id="addLocation" placeholder="Colombo" class="w-full border border-gray-300 rounded-md p-2 mb-4" />
+      <label for="addContributor" class="block text-gray-700 font-medium mb-2">A description of the number</label>
+      <input type="text" id="addContributor" placeholder="Bad person" class="w-full border border-gray-300 rounded-md p-2 mb-4" />
+      <label for="addProfilePic" class="block text-gray-700 font-medium mb-2">Profile Picture URL</label>
+      <input type="text" id="addProfilePic" placeholder="https://example.com/profile.jpg" class="w-full border border-gray-300 rounded-md p-2 mb-4" />
+      <button id="submitBtn" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Add Number</button>
+      <button id="closeModalBtn" class="mt-2 w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700">Close</button>
+    </div>
+  </div>
+
+  <!-- Alert Box -->
+  <div id="alertBox" class="hidden fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-red-600 text-white text-center p-4 rounded-md shadow-md">
+    <p id="alertMessage" class="font-medium"></p>
+    <button id="closeAlertBtn" class="mt-2 w-full bg-red-800 text-white py-2 rounded-md hover:bg-red-900">
+      Close
+    </button>
+  </div>
+<!-- General Alert Box -->
+<div id="alertBox" class="hidden fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-red-600 text-white text-center p-4 rounded-md shadow-md">
+  <p id="alertMessage" class="font-medium"></p>
+  <button id="closeAlertBtn" class="mt-2 w-full bg-red-800 text-white py-2 rounded-md hover:bg-red-900">
+    Close
+  </button>
+</div>
+
+<!-- 'Number Not Found' Alert Box -->
+<div id="notFoundAlertBox" class="hidden fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-yellow-600 text-white text-center p-4 rounded-md shadow-md">
+  <p id="notFoundMessage" class="font-medium">Number not found in the database.</p>
+  <button id="closeNotFoundAlertBtn" class="mt-2 w-full bg-yellow-800 text-white py-2 rounded-md hover:bg-yellow-900">
+    Close
+  </button>
+</div>
+
+  <!-- Result Section -->
+  <section id="result" class="mt-6 w-full max-w-md hidden bg-white rounded-2xl shadow p-6">
+    <h2 class="text-xl font-semibold text-gray-700 mb-4">🔎 Result</h2>
+    <p><strong>Name:</strong> <span id="name">-</span></p>
+    <p><strong>Location:</strong> <span id="location">-</span></p>
+    <p><strong>Contributed by:</strong> <span id="contributor">-</span></p>
+    <img id="profilePic" src="https://via.placeholder.com/100" alt="Profile Pic" class="mt-4 w-24 h-24 rounded-full mx-auto" />
+  </section>
+
+  <!-- Link to external JavaScript -->
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
